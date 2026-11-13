@@ -1,12 +1,57 @@
-# React + Vite
+# Photo Navigator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Photo Navigator is a React web app for exploring a photo collection by timeline and location. Search and filter photos, browse their locations on an interactive map, and open a photo to see its details.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Browse photos in a horizontally scrolling timeline.
+- Search photos by title.
+- Filter by location or season.
+- Explore photo locations on an interactive map.
+- Select a photo to view its image, title, description, and date.
 
-## Expanding the ESLint configuration
+## Built with
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React 19
+- Vite
+- Leaflet and React Leaflet
+- OpenStreetMap map tiles
+
+## Run locally
+
+Requires Node.js and npm.
+
+```powershell
+npm install
+npm run dev
+```
+
+Open the local URL printed by Vite, usually `http://localhost:5173/`.
+
+## Available scripts
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the local development server |
+| `npm run build` | Create a production build in `dist/` |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint` | Run ESLint |
+
+## Project structure
+
+```text
+src/
+  App.jsx          Main app and search/filter controls
+  Timeline.jsx     Photo timeline
+  MapView.jsx      Interactive map and photo markers
+  PhotoDetail.jsx  Selected photo details
+  Photos.js        Photo metadata
+public/
+  iCloud_Photos_Photos/  Photo image assets
+```
+
+Photo entries and their metadata are maintained in `src/Photos.js`; image files are stored in `public/iCloud_Photos_Photos/`.
+
+## Photo privacy
+
+Files in `public/` are served as public assets. Only add photos and location details that you have permission to share, especially when deploying this app publicly. The map uses OpenStreetMap tiles and displays the locations configured in the photo metadata.
